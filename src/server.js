@@ -10,8 +10,8 @@ const morgan = require('morgan');
 require('./database')
 
 //Settings
-app.set('port', 3000 || process.env.PORT)
-app.set('views', path.join(__dirname, 'views'))
+app.set('port', 3000 || process.env.PORT);
+app.set('views', path.join(__dirname, 'views'));
 
 //Middlewares
 app.use(morgan('dev'))

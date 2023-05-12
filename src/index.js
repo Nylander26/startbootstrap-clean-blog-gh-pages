@@ -7,4 +7,4 @@ const port = app.get('port');
 app.set('view engine', 'ejs');
 
 //Server listening
-app.listen(port, () => console.log(`Listening on port: ` + port))
+app.listen(port, () => console.log(`Listening on port: ` + port));
