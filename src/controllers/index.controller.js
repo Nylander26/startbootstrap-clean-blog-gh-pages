@@ -10,8 +10,11 @@ const indexCtrl = {};
 //@desc SHOWS THE HOME ROUTE
 //@route GET /
 //@access PUBLIC
-indexCtrl.renderHome = (req, res) => {
-  res.render("index");
+indexCtrl.renderHome = async(req, res) => {
+  const allPost = await BlogPost.find({});
+  res.render("index", {
+    allPost
+  });
 };
 
 //@desc SHOWS THE ABOUT ROUTE
@@ -31,8 +34,9 @@ indexCtrl.renderContact = (req, res) => {
 //@desc SHOWS THE POST ROUTE
 //@route GET /posts
 //@access PUBLIC
-indexCtrl.renderPost = (req, res) => {
-  res.render("post");
+indexCtrl.renderPost = async(req, res) => {
+  const post = await BlogPost.findById(req.params.id);
+  res.render("post", { post });
 };
 
 //@desc SHOWS THE CREATE POST ROUTE
@@ -54,7 +58,7 @@ indexCtrl.storePosts = async (req, res) => {
     .save()
     .then(() => {
       console.log("Post Saved...");
-      res.redirect("/posts");
+      res.redirect("/");
     })
     .catch((err) => {
       console.log(err);

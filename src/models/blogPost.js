@@ -8,6 +8,13 @@ const blogPostSchema = new Schema({
     body: {
         type: String,
         required: [true, 'El body es obligatorio.']
+    },
+    author: {
+        type: String,
+    },
+    datePosted: {
+        type: Date,
+        default: Date.now
     }
 }, {
     timestamps: true

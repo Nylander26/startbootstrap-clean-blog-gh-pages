@@ -9,11 +9,11 @@ router.get('/about', renderAbout)
 
 router.get('/contact', renderContact)
 
-router.get('/posts', renderPost)
+router.get('/post/:id', renderPost)
 
 router.get('/posts/new', renderCreatePost)
 
 //POST ROUTES
-router.post('/posts/store', storePosts)
+router.post('/posts/store', storePosts);
 
 module.exports = router;
