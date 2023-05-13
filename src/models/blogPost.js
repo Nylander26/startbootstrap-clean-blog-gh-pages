@@ -15,6 +15,9 @@ const blogPostSchema = new Schema({
     datePosted: {
         type: Date,
         default: Date.now
+    },
+    image: {
+        type: String
     }
 }, {
     timestamps: true

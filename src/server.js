@@ -1,25 +1,27 @@
 //Require express for initialize the server
-const express = require('express');
-const app = express()
-const path = require('path');
+const express = require("express");
+const app = express();
+const path = require("path");
+const fileUpload = require("express-fileupload");
 
 //Morgan shows the http requests on console
-const morgan = require('morgan');
+const morgan = require("morgan");
 
 //Database
-require('./database')
+require("./database");
 
 //Settings
-app.set('port', 3000 || process.env.PORT);
-app.set('views', path.join(__dirname, 'views'));
+app.set("port", 3000 || process.env.PORT);
+app.set("views", path.join(__dirname, "views"));
 
 //Middlewares
-app.use(morgan('dev'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
-app.use(express.static('public'))
+app.use(morgan("dev"));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static("public"));
+app.use(fileUpload());
 
 //Routes
-app.use(require('./routes/index.routes'))
+app.use(require("./routes/index.routes"));
 
-module.exports = app
+module.exports = app;
